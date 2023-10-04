@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Plant } from './plant';
 import { PlantsService } from './plants.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PlantsService } from './plants.service';
   styleUrls: ['./plants.component.scss']
 })
 export class PlantsComponent {
-  plants$: Observable<any[]> = new Observable<any[]>();
+  plants$: Observable<Plant[]> = new Observable<Plant[]>();
 
 
   constructor(private readonly plantsService: PlantsService) {}

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { OrderSearchService } from './order-search.service';
+
 
 @Component({
   selector: 'app-order-search',
@@ -7,4 +10,14 @@ import { Component } from '@angular/core';
 })
 export class OrderSearchComponent {
 
+  constructor(private readonly orderSearchService: OrderSearchService) {}
+
+  orderNumber = new FormControl('');
+
+  onClick() {
+    if (!!this.orderNumber.value) {
+      return this.orderSearchService.getOrderDetails(this.orderNumber.value);
+    }
+    return;
+  }
 }
