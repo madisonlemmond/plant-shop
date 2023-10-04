@@ -1,0 +1,13 @@
+.buttonContainer {
+    display: flex;
+}
+
+.navButton {
+    margin: 0.5rem;
+    background-color: white;
+
+    &:hover,
+    &.active {
+        background-color: lightblue;
+    }
+}

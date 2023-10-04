@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Put, Param } from '@nestjs/common';
 import { Plant } from './plants.interface';
 import { PlantsService } from './plants.service';
 
