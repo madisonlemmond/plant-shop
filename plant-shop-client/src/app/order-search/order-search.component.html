@@ -9,13 +9,11 @@
             <div class="orderNumberField">
                 <mat-form-field>
                     <mat-label>Enter your order number</mat-label>
-                    <input matInput>
+                    <input matInput [formControl]="orderNumber">
                 </mat-form-field>
-                <!-- <div class="searchButtonContainer"> -->
-                    <button mat-mini-fab color="primary" style="margin: 0.5rem;">
+                    <button mat-mini-fab color="primary" style="margin: 0.5rem;" (click)="onClick()">
                       <mat-icon>search</mat-icon>
                     </button>
-                <!-- </div> -->
             </div>
         </mat-card-content>
     </mat-card>
