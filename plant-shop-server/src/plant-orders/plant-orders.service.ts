@@ -15,12 +15,12 @@ export class PlantOrdersService {
         this.plantOrders = JSON.parse(fs.readFileSync('plant-orders.json', 'utf8'));
     }
 
-    public getAll(): Array<PlantOrder> | void {
+    public getAll(): Array<PlantOrder> | null {
         return this.plantOrders;
     }
 
-    public getOrderDetails(orderNumber: number) {
-        return this.plantOrders.find(order => order.orderNumber === orderNumber);
+    public getOrderDetails(orderNumber: number): PlantOrder | null {
+        return this.plantOrders.find(order => order.orderNumber == orderNumber);
     }
 
     public createOrder(plantOrderRequest: PlantOrderRequest): PlantOrder {

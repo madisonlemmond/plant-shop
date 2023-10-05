@@ -1,1 +1,1 @@
-[]
+[{"plant":"Snake Plant","plantId":1,"price":12,"qtyPurchased":2,"purchaserName":"Madison Lemmond","shippingAddress":"123 Main St","plantName":"Snake Plant","orderNumber":1,"salePrice":24},{"plant":"Monstera","plantId":4,"price":50,"qtyPurchased":3,"purchaserName":"Liam Oliver","shippingAddress":"3250 S Dobson Rd","plantName":"Monstera","orderNumber":2,"salePrice":150}]

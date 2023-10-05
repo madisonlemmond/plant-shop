@@ -8,25 +8,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { NavigationComponent } from './navigation/navigation.component';
-import { OrderSearchComponent } from './order-search/order-search.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PlantOrdersModule } from './plant-orders/plant-orders.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    OrderSearchComponent
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PlantsModule,
+    PlantOrdersModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -34,7 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule,
+    // MatIconModule,
     ReactiveFormsModule
   ],
   providers: [],
