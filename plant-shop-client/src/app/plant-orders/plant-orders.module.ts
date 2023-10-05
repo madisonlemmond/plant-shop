@@ -13,11 +13,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OrderDetailsComponent } from './order-search/order-details/order-details.component';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { OrderResultDialogComponent } from './order-result-dialog/order-result-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
 @NgModule({
-  declarations: [PlantOrdersComponent, OrderSearchComponent, OrderDetailsComponent, OrderDialogComponent],
+  declarations: [PlantOrdersComponent, OrderSearchComponent, OrderDetailsComponent, OrderDialogComponent, OrderResultDialogComponent],
   imports: [
     CommonModule,
     MatCardModule,
@@ -28,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatListModule,
     MatGridListModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 export class PlantOrdersModule { }

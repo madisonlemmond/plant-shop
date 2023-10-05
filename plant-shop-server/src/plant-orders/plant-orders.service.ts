@@ -51,7 +51,7 @@ export class PlantOrdersService {
 
             return newOrderDetails;
         } else {
-            throw new BadRequestException();
+            throw new BadRequestException({"requestedQtyNotAvailable": true});
         }
     }
 }

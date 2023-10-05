@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { OrderResultDialogComponent } from '../order-result-dialog/order-result-dialog.component';
 import { PlantOrderRequest } from '../plant-order-request';
 import { PlantOrdersService } from '../plant-orders.service';
 
@@ -17,7 +18,10 @@ export class OrderDialogComponent {
   plantOrderRequest: PlantOrderRequest;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {plant: string, plantId: number, price: number},
-  private readonly plantOrdersService: PlantOrdersService) {}
+    private readonly plantOrdersService: PlantOrdersService,
+    public dialogRef: MatDialogRef<OrderDialogComponent>,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.orderQty = new FormControl(1, [Validators.min(1), Validators.required]);
@@ -41,9 +45,28 @@ export class OrderDialogComponent {
       ...purchaserInfo
     }
 
-    this.plantOrdersService.createOrder(this.plantOrderRequest).subscribe((confirmedOrderDetails) => {
-      console.log(confirmedOrderDetails);
-    })
+    this.plantOrdersService.createOrder(this.plantOrderRequest).subscribe({
+      next: (confirmedOrderDetails) => {
+        this.dialogRef.close();
+        const resultDialogRef = this.dialog.open(OrderResultDialogComponent, {
+          data: {
+            success: true,
+            message: 'Order Confirmed',
+            orderDetails: confirmedOrderDetails
+          }
+        })
+      },
+      error: (e) => {
+        this.dialogRef.close()
+        const resultDialogRef = this.dialog.open(OrderResultDialogComponent, {
+          data: {
+            success: false,
+            message: 'Not Enough Quantity Available'
+          }
+        })
+      },
+      complete: () => null 
+    });
   }
 
 }

@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>
+    {{data.message}}
+    <ng-container *ngIf="data.success; else errorIcon">
+        <mat-icon>success</mat-icon>
+    </ng-container>
+    <ng-template #errorIcon> 
+        <mat-icon color="warn">error</mat-icon>
+    </ng-template>
+</h1>
+<div mat-dialog-content>
+    
+    
+    <ng-container *ngIf="data.success; else errorMessage">
+        <span>{{data.orderDetails}}</span>
+        <!-- <h3>{{data.plant}} x {{orderQty.value}}</h3>
+        <h3>${{data.price * orderQty.value}}</h3> -->
+    </ng-container>    
+    <ng-template #errorMessage>
+        <h3>Please try ordering a lower quantity</h3>
+    </ng-template>
+</div>
+<div mat-dialog-actions align="end">
+    <button 
+        mat-stroked-button 
+        color=primary
+        mat-dialog-close 
+    >OK
+    </button>
+</div>
+

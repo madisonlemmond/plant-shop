@@ -10,4 +10,7 @@ export class OrderDetailsComponent {
 
   @Input() orderDetails: OrderDetails;
 
+  ngOnInit() {
+    console.log(this.orderDetails)
+  }
 }

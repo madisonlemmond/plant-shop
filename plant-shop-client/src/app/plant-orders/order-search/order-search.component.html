@@ -11,7 +11,7 @@
                   <mat-label>Enter your order number</mat-label>
                   <input matInput [formControl]="orderNumber">
               </mat-form-field>
-              <button mat-mini-fab color="primary" style="margin: 0.5rem;" (click)="onClick()">
+              <button mat-mini-fab color="primary" style="margin: 0.5rem;" (click)="onClick()" [disabled]="orderNumber.invalid">
                 <mat-icon>search</mat-icon>
               </button>
             </div>
