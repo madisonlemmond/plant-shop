@@ -13,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class OrderSearchComponent {
 
-  orderDetails$: Observable<OrderDetails> = new Observable<OrderDetails>();
+  orderDetails$: Observable<OrderDetails | null> = new Observable<OrderDetails | null>();
   error: Error;
 
   constructor(private readonly plantOrdersService: PlantOrdersService,
@@ -26,6 +26,7 @@ export class OrderSearchComponent {
       this.plantOrdersService.getOrderDetails(this.orderNumber.value).subscribe({
         next: (orderDetails) => this.orderDetails$ = of(orderDetails),
         error: (e) => {
+          this.orderDetails$ = of(null);
           this.snackBar.open(`Error: Order ${this.orderNumber.value} Not Found`, 'OK', {
             horizontalPosition: 'center',
             verticalPosition: 'top'

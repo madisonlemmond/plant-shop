@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Plant } from './plant';
 import { PlantsService } from './plants.service';
 
@@ -10,11 +10,16 @@ import { PlantsService } from './plants.service';
 })
 export class PlantsComponent {
   plants$: Observable<Plant[]> = new Observable<Plant[]>();
-
+  fetchData$: BehaviorSubject<void>;
+  
 
   constructor(private readonly plantsService: PlantsService) {}
 
   ngOnInit() {
-    this.plants$ = this.plantsService.getAllPlants();
+    this.onFetchData();
+  }
+
+  public onFetchData(): void {
+    this.plants$ = this.plantsService.getAllPlants();  
   }
 }

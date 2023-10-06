@@ -1,5 +1,5 @@
 <div class="plantsList">
     <ng-container *ngFor="let plant of (plants$ | async)">
-        <app-plant-details [plantDetails]="plant"></app-plant-details>
+        <app-plant-details [plantDetails]="plant" (fetchData)="onFetchData()"></app-plant-details>
     </ng-container>
 </div>

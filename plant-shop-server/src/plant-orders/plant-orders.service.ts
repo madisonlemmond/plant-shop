@@ -9,13 +9,17 @@ import * as fs from 'fs';
 export class PlantOrdersService {
     private requestedPlant: Plant;
 
+    private plantOrdersArray: Array<PlantOrder> = [];
+
     private plantOrders: Array<PlantOrder>;
 
     constructor(private readonly plantsService: PlantsService) {
+        fs.writeFileSync('plant-orders.json', JSON.stringify(this.plantOrdersArray));
         this.plantOrders = JSON.parse(fs.readFileSync('plant-orders.json', 'utf8'));
     }
 
     public getAll(): Array<PlantOrder> | null {
+        this.plantOrders = JSON.parse(fs.readFileSync('plant-orders.json', 'utf8'));
         return this.plantOrders;
     }
 
@@ -29,7 +33,7 @@ export class PlantOrdersService {
         if (this.requestedPlant?.qtyAvailable >= plantOrderRequest.qtyPurchased) {
             this.requestedPlant.qtyAvailable -= plantOrderRequest.qtyPurchased;
 
-            this.plantsService.updatePlantQty(this.requestedPlant);           
+            this.plantsService.updatePlantQty(this.requestedPlant);
 
             const plantName: string = this.requestedPlant.name;
             const orderNumber: number = this.plantOrders.length + 1;
