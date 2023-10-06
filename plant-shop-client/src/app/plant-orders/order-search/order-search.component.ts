@@ -26,11 +26,9 @@ export class OrderSearchComponent {
       this.plantOrdersService.getOrderDetails(this.orderNumber.value).subscribe({
         next: (orderDetails) => this.orderDetails$ = of(orderDetails),
         error: (e) => {
-          this.snackBar.open(`Error: Order ${this.orderNumber.value} Not Found`, 'New Search', {
+          this.snackBar.open(`Error: Order ${this.orderNumber.value} Not Found`, 'OK', {
             horizontalPosition: 'center',
             verticalPosition: 'top'
-          }).afterDismissed().subscribe(() => {
-            this.orderNumber.reset();
           })
         }
       });

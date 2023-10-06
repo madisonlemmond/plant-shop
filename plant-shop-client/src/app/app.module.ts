@@ -11,7 +11,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlantOrdersModule } from './plant-orders/plant-orders.module';
 
@@ -34,7 +34,7 @@ import { PlantOrdersModule } from './plant-orders/plant-orders.module';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    // MatIconModule,
+    MatButtonToggleModule,
     ReactiveFormsModule
   ],
   providers: [],

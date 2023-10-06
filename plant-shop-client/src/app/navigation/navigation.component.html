@@ -1,20 +1,8 @@
 <mat-toolbar color="primary" style="justify-content: center;">
-    <div class="buttonContainer">
-        <button
-            mat-stroked-button
-            color="primary"
-            class="navButton"
-            [routerLink]="['/plants']"
-        >
-        Browse Plants
-        </button>
-        <button
-            mat-stroked-button
-            color="primary"
-            class="navButton"
-            [routerLink]="['/order-search']"
-        >
-        Order Details
-        </button>
+    <div>
+        <mat-button-toggle-group class="buttonContainer">
+            <mat-button-toggle class="navButton" [routerLink]="['/plants']">Browse Plants</mat-button-toggle>
+            <mat-button-toggle class="navButton" [routerLink]="['/order-search']">Order Details</mat-button-toggle>
+        </mat-button-toggle-group>
     </div>
 </mat-toolbar>
