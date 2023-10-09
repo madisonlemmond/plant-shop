@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "rm -rf ../plant-shop-server/client && mkdir ../plant-shop-server/client && ng build --configuration production && mv dist/plant-shop-client/* ../plant-shop-server/client/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

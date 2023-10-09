@@ -9,7 +9,7 @@ const routes: Routes = [
     component: PlantsComponent
   },
   {
-    path: 'plants',
+    path: 'plants-list',
     component: PlantsComponent
   },
   {
