@@ -5,5 +5,4 @@ export interface Plant {
     price: number;
     qtyAvailable: number;
     funFact: string;
-    image?: string;
 }
