@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    api: 'http://localhost:3000'
+    api: 'https://plant-shop-madison-670e93d6e5ca.herokuapp.com/'
 };
